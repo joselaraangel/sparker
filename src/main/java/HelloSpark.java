@@ -16,6 +16,9 @@ import java.util.*;
 
 public class HelloSpark {
     
+    //En esta linea llamamos a la clase conexion si no cuenta con una base de datos sustituya:
+    //ArticlePostgresDao por ArticleServletDao
+    
     public static ArticleDbService<Article> articleDbService = new ArticlePostgresDao<Article>();
 
     public static void main(String[] args) {
@@ -28,7 +31,7 @@ public class HelloSpark {
                 ArrayList<Article> articles = articleDbService.readAll();
 
                 if (articles.isEmpty()) {
-                    viewObjects.put("hasNoArticles", "Bienvenido parece que no hay nada, por favor\"escribe algo..\" to begin.");
+                    viewObjects.put("hasNoArticles", "Bienvenido parece que no hay nada, por favor\"publica algo\" para comenzar.");
                 } else {
                     Deque<Article> showArticles = new ArrayDeque<Article>();
 
@@ -46,6 +49,8 @@ public class HelloSpark {
                 return modelAndView(viewObjects, "layout.ftl");
             }
         });
+        
+        //En esta parte se cargan las plantillas ftl y se les asigna una ruta
 
         get(new FreeMarkerRoute("/article/create") {
             @Override
@@ -129,6 +134,18 @@ public class HelloSpark {
                 response.status(200);
                 response.redirect("/");
                 return "";
+            }
+        });
+        
+        get(new FreeMarkerRoute("/registro") {
+            @Override
+            public Object handle(Request request, Response response) {
+                
+                Map<String, Object> viewObjects = new HashMap<String, Object>();
+
+                viewObjects.put("templateName", "registro.ftl");
+
+                return modelAndView(viewObjects, "layout.ftl");
             }
         });
     }
