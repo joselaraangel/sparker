@@ -148,5 +148,19 @@ public class HelloSpark {
                 return modelAndView(viewObjects, "layout.ftl");
             }
         });
+        
+         get(new FreeMarkerRoute("/user/:id") {
+            @Override
+            public Object handle(Request request, Response response) {
+                Integer id = Integer.parseInt(request.params(":id"));
+                Map<String, Object> viewObjects = new HashMap<String, Object>();
+
+                viewObjects.put("templateName", "profile.ftl");
+
+                viewObjects.put("article", articleDbService.readOne(id));
+
+                return modelAndView(viewObjects, "layout.ftl");
+            }
+        });
     }
 }

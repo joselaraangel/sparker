@@ -3,6 +3,8 @@ import com.mongodb.*;
 import java.sql.Date;
 import java.util.ArrayList;
 
+//Esta clase solo sera utilizada si se desea realizar una conexion con el manejador de base de datos Mongo DB a futuro
+
 public class ArticleMongoDao<T extends Article> implements ArticleDbService<T> {
     // A collection in Mongo can be thought of as a table in a relational DB
     private DBCollection collection;

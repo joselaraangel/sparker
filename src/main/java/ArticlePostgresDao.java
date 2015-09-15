@@ -8,6 +8,8 @@ import java.util.ArrayList;
  */
 
 public class ArticlePostgresDao<T extends Article> implements ArticleDbService<T> {
+    
+    //clase que contiene la conexion necesaria para postgre sql
 
     // PostgreSQL connection to the database
     private Connection conn;
