@@ -7,8 +7,7 @@ import java.util.ArrayList;
  * @since 13/09/2015
  */
 
-public class ArticlePostgresDao<T extends Article> implements ArticleDbService<T> {
-    
+public class ArticlePostgresDao<T extends Article>  implements ArticleDbService<T> { 
     //clase que contiene la conexion necesaria para postgre sql
 
     // PostgreSQL connection to the database
@@ -85,7 +84,11 @@ public class ArticlePostgresDao<T extends Article> implements ArticleDbService<T
             pstmt.close();
 
             return true;
-        } catch (SQLException e) {
+        } 
+        
+        
+        
+        catch (SQLException e) {
             System.out.println(e.getMessage());
 
             try {
@@ -103,11 +106,13 @@ public class ArticlePostgresDao<T extends Article> implements ArticleDbService<T
         }
     }
 
+ 
+    
     @Override
     @SuppressWarnings("unchecked")
     public T readOne(int id) {
         try {
-            String selectQuery = "SELECT * FROM article where id = ?";
+            String selectQuery = "SELECT * FROM usuarios where id = ?";
 
             PreparedStatement pstmt = conn.prepareStatement(selectQuery);
             pstmt.setInt(1, id);
@@ -149,6 +154,7 @@ public class ArticlePostgresDao<T extends Article> implements ArticleDbService<T
 
         return null;
     }
+
 
     @Override
     @SuppressWarnings("unchecked") //Tells the compiler to ignore unchecked type casts

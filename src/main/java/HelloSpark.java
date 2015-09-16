@@ -20,6 +20,8 @@ public class HelloSpark {
     //ArticlePostgresDao por ArticleServletDao
     
     public static ArticleDbService<Article> articleDbService = new ArticlePostgresDao<Article>();
+    
+    
 
     public static void main(String[] args) {
          
