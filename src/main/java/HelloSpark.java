@@ -20,6 +20,7 @@ public class HelloSpark {
     //ArticlePostgresDao por ArticleServletDao
     
     public static ArticleDbService<Article> articleDbService = new ArticlePostgresDao<Article>();
+    public static UsuariosDbService<Usuarios> usuariosDbService = new UsuariosPostgresDao<Usuarios>();
     
     
 
@@ -151,7 +152,7 @@ public class HelloSpark {
             }
         });
         
-         get(new FreeMarkerRoute("/user/:id") {
+        get(new FreeMarkerRoute("/user/:id") {
             @Override
             public Object handle(Request request, Response response) {
                 Integer id = Integer.parseInt(request.params(":id"));
@@ -159,7 +160,7 @@ public class HelloSpark {
 
                 viewObjects.put("templateName", "profile.ftl");
 
-                viewObjects.put("article", articleDbService.readOne(id));
+                viewObjects.put("clientes", usuariosDbService.readOne(id));
 
                 return modelAndView(viewObjects, "layout.ftl");
             }

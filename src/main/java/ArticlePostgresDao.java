@@ -42,7 +42,7 @@ public class ArticlePostgresDao<T extends Article>  implements ArticleDbService<
             stmt = conn.createStatement();
             stmt.execute(createTableQuery);
 
-            System.out.println("Connecting to PostgreSQL database");
+            System.out.println("database table article created");
         } catch(Exception e) {
             System.out.println(e.getMessage());
 
@@ -112,7 +112,7 @@ public class ArticlePostgresDao<T extends Article>  implements ArticleDbService<
     @SuppressWarnings("unchecked")
     public T readOne(int id) {
         try {
-            String selectQuery = "SELECT * FROM usuarios where id = ?";
+            String selectQuery = "SELECT * FROM article where id = ?";
 
             PreparedStatement pstmt = conn.prepareStatement(selectQuery);
             pstmt.setInt(1, id);
