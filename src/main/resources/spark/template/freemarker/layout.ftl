@@ -22,6 +22,9 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="/article/create"><span class="glyphicon glyphicon-pencil"> Publicar</a></li>
                     </ul>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="/user/create"><span class="glyphicon glyphicon-user"> Registrarme</a></li>
+                    </ul>
                 </div>
             </div>
         </div>

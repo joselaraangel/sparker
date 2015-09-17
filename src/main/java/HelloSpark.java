@@ -140,7 +140,7 @@ public class HelloSpark {
             }
         });
         
-        get(new FreeMarkerRoute("/registro") {
+        get(new FreeMarkerRoute("/user/create") {
             @Override
             public Object handle(Request request, Response response) {
                 
@@ -149,6 +149,23 @@ public class HelloSpark {
                 viewObjects.put("templateName", "registro.ftl");
 
                 return modelAndView(viewObjects, "layout.ftl");
+            }
+        });
+        
+            post(new Route("/user/create") {
+            @Override
+            public Object handle(Request request, Response response) {
+                String title = request.queryParams("article-title");
+                String summary = request.queryParams("article-summary");
+                String content = request.queryParams("article-content");
+
+                Usuarios clientes = new Usuarios(title, summary, content, usuariosDbService.readAll().size());
+
+                usuariosDbService.create(clientes);
+
+                response.status(201);
+                response.redirect("/");
+                return "";
             }
         });
         
