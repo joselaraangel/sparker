@@ -22,7 +22,7 @@ public class HelloSpark {
     public static ArticleDbService<Article> articleDbService = new ArticlePostgresDao<Article>();
     public static UsuariosDbService<Usuarios> usuariosDbService = new UsuariosPostgresDao<Usuarios>();
     
-    
+//clase principal del sistema    
 
     public static void main(String[] args) {
          

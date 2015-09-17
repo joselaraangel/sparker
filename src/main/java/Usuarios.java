@@ -8,6 +8,8 @@ import java.util.Date;
  * @author José Angel Lara Aguirre
  * @since 13/09/2015
  */
+
+// Se definen los atributos de los usuarios
 public class Usuarios {
     
       private String title;
