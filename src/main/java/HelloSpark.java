@@ -155,11 +155,12 @@ public class HelloSpark {
             post(new Route("/user/create") {
             @Override
             public Object handle(Request request, Response response) {
-                String title = request.queryParams("article-title");
-                String summary = request.queryParams("article-summary");
-                String content = request.queryParams("article-content");
+                String nombre = request.queryParams("article-title");
+                String usuario = request.queryParams("article-summary");
+                String pass = request.queryParams("article-content");
+  
 
-                Usuarios clientes = new Usuarios(title, summary, content, usuariosDbService.readAll().size());
+                Usuarios clientes = new Usuarios(nombre, usuario, pass, usuariosDbService.readAll().size());
 
                 usuariosDbService.create(clientes);
 

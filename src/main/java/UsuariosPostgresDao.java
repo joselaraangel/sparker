@@ -28,9 +28,9 @@ public class UsuariosPostgresDao <A extends Usuarios>  implements UsuariosDbServ
         String createTableQuery =
                 "CREATE TABLE IF NOT EXISTS clientes(" +
                         "id         INT         PRIMARY KEY NOT NULL," +
-                        "title      VARCHAR(120) NOT NULL," +
-                        "content    VARCHAR(620)NOT NULL," +
-                        "summary    VARCHAR(220) NOT NULL," +
+                        "nombre      VARCHAR(30) NOT NULL," +
+                        "pass    VARCHAR(30)NOT NULL," +
+                        "usuario    VARCHAR(30) NOT NULL," +
                         "deleted    BOOLEAN     DEFAULT FALSE," +
                         "createdAt  DATE        NULL" +
                         ");"
@@ -63,16 +63,16 @@ public class UsuariosPostgresDao <A extends Usuarios>  implements UsuariosDbServ
     @Override
     public Boolean create(A entity) {
         try {
-            String insertQuery = "INSERT INTO clientes(id, title, content, summary, createdAt) VALUES(?, ?, ?, ?, ?);";
+            String insertQuery = "INSERT INTO clientes(id, nombre, pass, usuario, createdAt) VALUES(?, ?, ?, ?, ?);";
 
             // Prepared statements allow us to avoid SQL injection attacks
             PreparedStatement pstmt = conn.prepareStatement(insertQuery);
 
             // JDBC binds every prepared statement argument to a Java Class such as Integer and or String
             pstmt.setInt(1, entity.getId());
-            pstmt.setString(2, entity.getTitle());
-            pstmt.setString(3, entity.getContent());
-            pstmt.setString(4, entity.getSummary());
+            pstmt.setString(2, entity.getNombre());
+            pstmt.setString(3, entity.getPass());
+            pstmt.setString(4, entity.getUsuario());
 
             java.sql.Date sqlNow = new Date(new java.util.Date().getTime());
             pstmt.setDate(5, sqlNow);
@@ -125,9 +125,9 @@ public class UsuariosPostgresDao <A extends Usuarios>  implements UsuariosDbServ
             if(resultSet.next()) {
                 Usuarios entity = new Usuarios(
                         // You must know both the column name and the type to extract the row
-                        resultSet.getString("title"),
-                        resultSet.getString("summary"),
-                        resultSet.getString("content"),
+                        resultSet.getString("nombre"),
+                        resultSet.getString("usuario"),
+                        resultSet.getString("pass"),
                         resultSet.getInt("id"),
                         resultSet.getDate("createdat"),
                         resultSet.getBoolean("deleted")
@@ -170,9 +170,9 @@ public class UsuariosPostgresDao <A extends Usuarios>  implements UsuariosDbServ
 
             while(resultSet.next()) {
                 Usuarios entity = new Usuarios(
-                        resultSet.getString("title"),
-                        resultSet.getString("summary"),
-                        resultSet.getString("content"),
+                        resultSet.getString("nombre"),
+                        resultSet.getString("usuario"),
+                        resultSet.getString("pass"),
                         resultSet.getInt("id"),
                         resultSet.getDate("createdat"),
                         resultSet.getBoolean("deleted")
@@ -200,18 +200,18 @@ public class UsuariosPostgresDao <A extends Usuarios>  implements UsuariosDbServ
     }
 
     @Override
-    public Boolean update(int id, String title, String summary, String content) {
+    public Boolean update(int id, String nombre, String usuario, String pass) {
         try {
             String updateQuery =
-                "UPDATE clientes SET title = ?, summary = ?, content = ?" +
+                "UPDATE clientes SET nombre = ?, usuario = ?, pass = ?" +
                         "WHERE id = ?;"
                 ;
 
             PreparedStatement pstmt = conn.prepareStatement(updateQuery);
 
-            pstmt.setString(1, title);
-            pstmt.setString(2, summary);
-            pstmt.setString(3, content);
+            pstmt.setString(1, nombre);
+            pstmt.setString(2, usuario);
+            pstmt.setString(3, pass);
             pstmt.setInt(4, id);
 
             pstmt.executeUpdate();

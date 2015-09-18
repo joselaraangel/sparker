@@ -10,53 +10,53 @@ import java.util.Date;
  */
 public class Usuarios {
     
-      private String title;
-    private String content;
+      private String nombre;
+    private String pass;
     private Date createdAt;
-    private String summary;
+    private String usuario;
     private Integer id;
     private Boolean deleted;
 
-    public Usuarios (String title, String summary, String content, Integer size) {
-        this.title = title;
-        this.summary = summary;
-        this.content = content;
+    public Usuarios (String nombre, String usuario, String pass, Integer size) {
+        this.nombre = nombre;
+        this.usuario = usuario;
+        this.pass = pass;
         this.createdAt = new Date();
         this.id = size;
         this.deleted = false;
     }
 
-    public Usuarios (String title, String summary, String content, Integer id, Date createdAt, Boolean deleted) {
-        this.title = title;
-        this.summary = summary;
-        this.content = content;
+    public Usuarios (String nombre, String usuario, String pass, Integer id, Date createdAt, Boolean deleted) {
+        this.nombre = nombre;
+        this.usuario = usuario;
+        this.pass = pass;
         this.createdAt = createdAt;
         this.id = id;
         this.deleted = deleted;
     }
 
-    public String getTitle() {
-        return title;
+    public String getNombre() {
+        return nombre;
     }
 
-    public String getContent() {
-        return content;
+    public String getPass() {
+        return pass;
     }
 
-    public String getSummary() {
-        return summary;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 
-    public void setSummary(String summary) {
-        this.summary = summary;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
     public Integer getId() {
@@ -85,7 +85,7 @@ public class Usuarios {
     }
 
     public String getSummaryLink() {
-        return "<a href='/article/read/" + this.id + "'>" + this.summary + "</a>";
+        return "<a href='/article/read/" + this.id + "'>" + this.usuario + "</a>";
     }
     
 }

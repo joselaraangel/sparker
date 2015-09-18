@@ -9,20 +9,20 @@
         <div class="form-group">
             <label class="col-sm-3 control-label" for="title">Nombre: </label>
             <div class="col-sm-5">
-                <input class="form-control" type='text' id="title" name='article-title' placeholder="Nombre" maxlength="30" <#if clientes??> value="${clientes.getTitle()}" </#if> />
+                <input class="form-control" type='text' id="title" name='article-title' placeholder="Nombre" maxlength="30" <#if clientes??> value="${clientes.getNombre()}" </#if> />
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-3 control-label" for="summary">Usuario: </label>
             <div class="col-sm-5">
-                <input class="form-control" type='text' id="summary" name='article-summary' placeholder="Nombre de usuario" maxlength="30" <#if clientes??> value="${clientes.getSummary()}" </#if>  />
+                <input class="form-control" type='text' id="summary" name='article-summary' placeholder="Nombre de usuario" maxlength="30" <#if clientes??> value="${clientes.getUsuario()}" </#if>  />
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-sm-3 control-label" for="content">Clave: </label>
             <div class="col-sm-5">
-                <input class="form-control" name='article-content' id="content"  form='article-create-form' placeholder="Clave de acceso" maxlength="30" <#if clientes??> value="${clientes.getContent()}" </#if> />
+                <input class="form-control" name='article-content' id="content"  form='article-create-form' placeholder="Clave de acceso" maxlength="30" <#if clientes??> value="${clientes.getPass()}" </#if> />
             </div>
         </div>
 

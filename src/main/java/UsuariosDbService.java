@@ -9,6 +9,6 @@ public interface UsuariosDbService<A> {
     public Boolean create(A entity);
     public A readOne(int id);
     public ArrayList<A> readAll();
-    public Boolean update(int id, String title, String summary, String content);
+    public Boolean update(int id, String nombre, String usuario, String pass);
     public Boolean delete(int id);
 }

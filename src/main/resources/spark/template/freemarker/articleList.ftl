@@ -12,7 +12,7 @@
               <tr  class="warning">
 <td width="35%"><strong>Titulo</strong></td>
 <td width="10%"><strong>Fecha</strong></td>
-<td width="35%"><strong>Preview</strong></td>
+<td width="35%"><strong>Descripcion</strong></td>
 <td width="10%"><strong>Editar</strong></td>
 <td width="10%"><strong>Eliminar</strong></td>
 </tr>
