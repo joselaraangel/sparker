@@ -8,6 +8,7 @@ import java.util.Date;
  * @since 13/09/2015
  */
 
+//Clase en la que se definen los atributos de los articulos
 public class Article {
     private String title;
     private String content;

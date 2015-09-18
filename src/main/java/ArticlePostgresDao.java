@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * @author José Angel Lara Aguirre
  * @since 13/09/2015
  */
-
+// clase de articulos con la base de datos
 public class ArticlePostgresDao<T extends Article>  implements ArticleDbService<T> { 
     //clase que contiene la conexion necesaria para postgre sql
 

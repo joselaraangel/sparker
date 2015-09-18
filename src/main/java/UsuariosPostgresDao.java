@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * @author José Angel Lara Aguirre
  * @since 13/09/2015
  */
-
+//Conexion con la base de datos de usuarios
 public class UsuariosPostgresDao <A extends Usuarios>  implements UsuariosDbService<A> { 
     //clase que contiene la conexion necesaria para postgre sql
 
